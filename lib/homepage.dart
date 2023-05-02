@@ -6,36 +6,29 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 120, 27, 136),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/quiz-logo.png',
-              width: 300,
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            'assets/images/quiz-logo.png',
+            width: 300,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          const Text(
+            'Learn Flutter the fun way!',
+            style: TextStyle(
+              color: Color.fromARGB(255, 237, 223, 252),
+              fontSize: 25,
             ),
-            const SizedBox(
-              height: 40,
-            ),
-            const Text(
-              'Learn Flutter the fun way!',
-              style: TextStyle(
-                color: Colors.orangeAccent,
-                fontSize: 25,
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const StartingQuiz(
-              
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const StartingQuiz(),
+        ],
       ),
     );
   }
