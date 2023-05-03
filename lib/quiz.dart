@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:verifica_moduli_1_2/homepage.dart';
 import 'package:verifica_moduli_1_2/question_screen.dart';
-import 'package:verifica_moduli_1_2/starting_quiz.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -13,21 +12,27 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  // Widget? activeScreen;
 
-  Widget? activeScreen;
+  // @override
+  // void initState() {
+  //   activeScreen = Homepage(switchScreen);
+  //   super.initState();
+  // }
 
-  @override
-  void initState() {
-    activeScreen = Homepage(switchScreen);
-    super.initState();
-  }
+  var activeScreen = 'homepage';
 
-  void switchScreen(){
+  // void switchScreen(){
+  //   setState(() {
+  //     activeScreen = const QuestionScreen();
+  //   });
+  // }
+
+  void switchScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = 'question-screen';
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +49,10 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          // child: activeScreen,
+          child: activeScreen == 'homepage'
+              ? Homepage(switchScreen)
+              : const QuestionScreen(),
         ),
       ),
     );
