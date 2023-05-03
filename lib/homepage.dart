@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:verifica_moduli_1_2/starting_quiz.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+  const Homepage(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,18 @@ class Homepage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          const StartingQuiz(),
+          OutlinedButton.icon(
+            onPressed: startQuiz,
+            style: OutlinedButton.styleFrom(
+                foregroundColor: const Color.fromRGBO(255, 255, 255, 1)),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: const Text(
+              'Start Quiz',
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 1),
+              ),
+            ),
+          )
         ],
       ),
     );
