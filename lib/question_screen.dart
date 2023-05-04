@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verifica_moduli_1_2/answer_button.dart';
 import 'package:verifica_moduli_1_2/data/questions.dart';
+import 'package:verifica_moduli_1_2/quiz.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -13,10 +14,16 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreen extends State<QuestionScreen> {
   var currentQuestionsIndex = 0;
+  Widget? activeScreen;
 
   void answerQuestion() {
     setState(() {
-      currentQuestionsIndex ++;
+      if(currentQuestionsIndex<=questions.length-1){
+        currentQuestionsIndex++;
+      }
+      else{
+        activeScreen = const Quiz();
+      }
     });
   }
 
