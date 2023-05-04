@@ -18,10 +18,9 @@ class _QuestionScreen extends State<QuestionScreen> {
 
   void answerQuestion() {
     setState(() {
-      if(currentQuestionsIndex<=questions.length-1){
+      if (currentQuestionsIndex < questions.length - 1) {
         currentQuestionsIndex++;
-      }
-      else{
+      } else {
         activeScreen = const Quiz();
       }
     });
@@ -40,7 +39,7 @@ class _QuestionScreen extends State<QuestionScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              currentQuestion.text,
+              questions[currentQuestionsIndex].text,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Color.fromRGBO(255, 255, 255, 1),
