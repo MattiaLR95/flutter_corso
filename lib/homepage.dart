@@ -14,6 +14,7 @@ class Homepage extends StatelessWidget {
           Image.asset(
             'assets/images/quiz-logo.png',
             width: 300,
+            color: const Color.fromARGB(116, 255, 255, 255),
           ),
           const SizedBox(
             height: 40,
@@ -36,7 +37,7 @@ class Homepage extends StatelessWidget {
             label: const Text(
               'Start Quiz',
               style: TextStyle(
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           )

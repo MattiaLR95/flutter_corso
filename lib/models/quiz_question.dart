@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class QuizQuestion {
 const QuizQuestion(
   this.text,

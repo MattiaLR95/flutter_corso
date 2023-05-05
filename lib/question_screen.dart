@@ -16,14 +16,11 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreen extends State<QuestionScreen> {
   var currentQuestionsIndex = 0;
-  Widget? activeScreen;
 
   void answerQuestion(String selectedAnswer) {
     widget.onSelectAnswer(selectedAnswer);
     setState(() {
-      if (currentQuestionsIndex < questions.length - 1) {
-        currentQuestionsIndex++;
-      }
+      currentQuestionsIndex++;
     });
   }
 
