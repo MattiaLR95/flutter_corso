@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:verifica_moduli_1_2/answer_button.dart';
 import 'package:verifica_moduli_1_2/data/questions.dart';
 import 'package:verifica_moduli_1_2/quiz.dart';
@@ -16,13 +17,18 @@ class _QuestionScreen extends State<QuestionScreen> {
   var currentQuestionsIndex = 0;
   Widget? activeScreen;
 
+  @override
+  void initState() {
+    activeScreen = const QuestionScreen();
+    super.initState();
+  }
+
   void answerQuestion() {
     setState(() {
       if (currentQuestionsIndex < questions.length - 1) {
         currentQuestionsIndex++;
-      } else {
-        activeScreen = const Quiz();
       }
+      null;
     });
   }
 
@@ -41,8 +47,10 @@ class _QuestionScreen extends State<QuestionScreen> {
             Text(
               questions[currentQuestionsIndex].text,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Color.fromRGBO(255, 255, 255, 1),
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 219, 76, 241),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 30),
