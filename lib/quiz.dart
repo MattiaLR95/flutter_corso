@@ -20,6 +20,7 @@ class _QuizState extends State<Quiz> {
   //   super.initState();
   // }
 
+  final List<String> selectedAnswers = [];
   var activeScreen = 'homepage';
 
   // void switchScreen(){
@@ -32,6 +33,10 @@ class _QuizState extends State<Quiz> {
     setState(() {
       activeScreen = 'question-screen';
     });
+  }
+
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
   }
 
   @override
@@ -52,7 +57,7 @@ class _QuizState extends State<Quiz> {
           // child: activeScreen,
           child: activeScreen == 'homepage'
               ? Homepage(switchScreen)
-              : const QuestionScreen(),
+              : QuestionScreen(onSelectAnswer: chooseAnswer,),
         ),
       ),
     );
