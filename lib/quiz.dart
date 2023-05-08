@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verifica_moduli_1_2/data/questions.dart';
 import 'package:verifica_moduli_1_2/homepage.dart';
 import 'package:verifica_moduli_1_2/question_screen.dart';
 
@@ -20,7 +21,7 @@ class _QuizState extends State<Quiz> {
   //   super.initState();
   // }
 
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   var activeScreen = 'homepage';
 
   // void switchScreen(){
@@ -31,12 +32,18 @@ class _QuizState extends State<Quiz> {
 
   void switchScreen() {
     setState(() {
+      selectedAnswers = [];
       activeScreen = 'question-screen';
     });
   }
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
+    if(selectedAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = 'homepage';
+      });
+    }
   }
 
   @override
