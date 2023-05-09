@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:verifica_moduli_1_2/data/questions.dart';
 import 'package:verifica_moduli_1_2/homepage.dart';
 import 'package:verifica_moduli_1_2/question_screen.dart';
+import 'package:verifica_moduli_1_2/results_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -23,6 +24,7 @@ class _QuizState extends State<Quiz> {
 
   List<String> selectedAnswers = [];
   var activeScreen = 'homepage';
+  Widget? screenWidget;
 
   // void switchScreen(){
   //   setState(() {
@@ -39,15 +41,30 @@ class _QuizState extends State<Quiz> {
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
-    if(selectedAnswers.length == questions.length) {
+    if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = 'homepage';
+        selectedAnswers = [];
+        activeScreen = 'results-screen';
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (activeScreen == 'question-screen') {
+      screenWidget = QuestionScreen(onSelectAnswer: (answer) {
+        chooseAnswer(answer);
+      });
+    }
+
+    if (activeScreen == 'homepage') {
+      screenWidget = Homepage(switchScreen);
+    }
+
+    if(activeScreen == 'results-screen'){
+      screenWidget = const ResultScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -62,9 +79,7 @@ class _QuizState extends State<Quiz> {
             ),
           ),
           // child: activeScreen,
-          child: activeScreen == 'homepage'
-              ? Homepage(switchScreen)
-              : QuestionScreen(onSelectAnswer: chooseAnswer,),
+          child: screenWidget,
         ),
       ),
     );
