@@ -36,7 +36,8 @@ class ResultScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Text(
-                'You answered X out of Y questions correctly'),
+                'You answered X out of Y questions correctly',
+                textAlign: TextAlign.center,),
             const SizedBox(
               height: 30,
             ),
