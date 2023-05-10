@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:verifica_moduli_1_2/data/questions.dart';
-import 'package:verifica_moduli_1_2/homepage.dart';
 import 'package:verifica_moduli_1_2/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -43,6 +43,11 @@ class ResultScreen extends StatelessWidget {
             Text(
               'You answered $result out of $totalQuestions questions correctly',
               textAlign: TextAlign.center,
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(183, 222, 125, 236),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(
               height: 30,
@@ -54,7 +59,19 @@ class ResultScreen extends StatelessWidget {
             TextButton(
               onPressed: () {},
               child: const Text('Restart Quiz!'),
-            )
+            ),
+            OutlinedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.access_time_rounded),
+              label: Text(
+                'Restart Quiz!',
+                style: GoogleFonts.lato(
+                  color: const Color.fromARGB(183, 222, 125, 236),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       ),
