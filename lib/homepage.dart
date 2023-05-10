@@ -33,7 +33,7 @@ class Homepage extends StatelessWidget {
             onPressed: startQuiz,
             style: OutlinedButton.styleFrom(
                 foregroundColor: const Color.fromRGBO(255, 255, 255, 1)),
-            icon: const Icon(Icons.replay),
+            icon: const Icon(Icons.time_to_leave),
             label: const Text(
               'Start Quiz',
               style: TextStyle(
