@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:verifica_moduli_1_2/data/questions.dart';
-import 'package:verifica_moduli_1_2/questions_summary.dart';
+import 'package:verifica_moduli_1_2/questions_summary/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen({super.key, required this.chosenAnswers});
+  const ResultScreen(
+      {super.key, required this.chosenAnswers, required this.onRestart});
 
   final List<String> chosenAnswers;
+  final void Function() onRestart;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -56,7 +58,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            OutlinedButton.icon(
+            TextButton.icon(
               onPressed: () {},
               icon: const Icon(
                 Icons.replay_rounded,
