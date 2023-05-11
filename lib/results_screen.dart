@@ -59,7 +59,7 @@ class ResultScreen extends StatelessWidget {
               height: 30,
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: onRestart,
               icon: const Icon(
                 Icons.replay_rounded,
                 color: Color.fromARGB(255, 255, 255, 255),
