@@ -33,6 +33,7 @@ class ResultScreen extends StatelessWidget {
         .where((e) => e['user_answers'] == e['correct_question'])
         .length;
     final totalQuestions = questions.length;
+    print(result);
 
     return SizedBox(
       width: double.infinity,

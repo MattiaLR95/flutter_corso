@@ -18,10 +18,6 @@ class QuestionSummary extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: 30,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
                     child: SummaryItem(data),
                   ),
                 ),
